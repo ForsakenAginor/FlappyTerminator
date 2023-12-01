@@ -6,6 +6,14 @@ public class Health : MonoBehaviour
 
     private int _currentHealth;
 
+    public delegate void HealthChangeDelegate(int value);
+
+    public delegate void DieDelegate();
+
+    public event HealthChangeDelegate HealthChange;
+
+    public event DieDelegate Die;
+
     public int MaxHealth => _maxHealth;
     protected int CurrentHealth
     {
@@ -27,14 +35,6 @@ public class Health : MonoBehaviour
     {
         ResetHealth();
     }
-
-    public delegate void HealthChangeDelegate(int value);
-
-    public event HealthChangeDelegate HealthChange;
-
-    public delegate void DieDelegate();
-
-    public event DieDelegate Die;
 
     public void TakeDamage()
     {

@@ -10,15 +10,16 @@ public class Player : MonoBehaviour
     private Rigidbody2D _rigidBody;
     private Health _health;
 
+    public delegate void CrashedDelegate();
+
+    public event CrashedDelegate Crashed;
+
     private void Awake()
     {
         _rigidBody = GetComponent<Rigidbody2D>();
         _health = GetComponent<Health>();
         _startPosition = transform.position;
     }
-
-    public delegate void CrashedDelegate();
-    public event CrashedDelegate Crashed;
 
     public void Crash()
     {
