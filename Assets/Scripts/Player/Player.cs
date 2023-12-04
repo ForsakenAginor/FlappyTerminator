@@ -33,4 +33,9 @@ public class Player : MonoBehaviour
         transform.position = _startPosition;   
         _health.ResetHealth();
     }
+
+    public Health GetHealth()
+    {
+        return _health;
+    }
 }

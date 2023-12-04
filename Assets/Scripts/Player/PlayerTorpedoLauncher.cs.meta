@@ -3,7 +3,10 @@ guid: 469e9de4c1a679949a8d89d80ca32ce0
 MonoImporter:
   externalObjects: {}
   serializedVersion: 2
-  defaultReferences: []
+  defaultReferences:
+  - _objectPrefab: {fileID: 2324373453112016294, guid: 067d158bd4371854ab2aa3c6079be9a6, type: 3}
+  - _parentTransform: {instanceID: 0}
+  - _torpedoLauncherPoint: {instanceID: 0}
   executionOrder: 0
   icon: {instanceID: 0}
   userData: 

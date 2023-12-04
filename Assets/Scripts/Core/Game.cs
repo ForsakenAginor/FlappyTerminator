@@ -14,7 +14,7 @@ public class Game : MonoBehaviour
 
     private void Awake()
     {
-        _playerHealth = _player.GetComponent<Health>();
+        _playerHealth = _player.GetHealth();
         _spawners = FindObjectsOfType<ObjectPoolGenerator>();
     }
 
@@ -46,9 +46,12 @@ public class Game : MonoBehaviour
         _gameOverScreen.Close();
         _player.ResetPlayer();
 
-        foreach (var spawner in _spawners)        
-            spawner.ResetPool();  
-        
+        if (_spawners != null)
+        {
+            foreach (var spawner in _spawners)
+                spawner.ResetPool();
+        }
+
         Time.timeScale = 1;
     }
 
