@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 
 public class Health : MonoBehaviour
@@ -6,16 +7,11 @@ public class Health : MonoBehaviour
 
     private int _currentHealth;
 
-    public delegate void HealthChangeDelegate(int value);
-
-    public delegate void DieDelegate();
-
-    public event HealthChangeDelegate HealthChange;
-
-    public event DieDelegate Die;
+    public event Action<int> HealthChange;
+    public event Action Die;
 
     public int MaxHealth => _maxHealth;
-    protected int CurrentHealth
+    private int CurrentHealth
     {
         get
         {

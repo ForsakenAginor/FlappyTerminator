@@ -8,14 +8,9 @@ public class BubleGenerator : MonoBehaviour
     [SerializeField] private Transform _spawnPoint;
     [SerializeField] private float _spawnSpeed;
 
-    private void OnEnable()
+    private void Start()
     {
         StartCoroutine(Spawn());
-    }
-
-    private void OnDisable()
-    {
-        StopCoroutine(Spawn());
     }
 
     private IEnumerator Spawn()

@@ -1,12 +1,11 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class GameOverScreen : Screen
 {
-    public delegate void ButtonClickedDelegate();
-
-    public event ButtonClickedDelegate RestartButtonClicked;
+    public event Action RestartButtonClicked;
 
     protected override void OnButtonClick()
     {

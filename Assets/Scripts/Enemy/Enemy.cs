@@ -10,11 +10,6 @@ public class Enemy : MonoBehaviour
     private TorpedoLauncher _launcher;
     private float _rearmDelay;
 
-    private void Start()
-    {
-        _launcher = FindObjectOfType<EnemyTorpedoLauncher>();
-    }
-
     private void Update()
     {
         if (_rearmDelay <= 0)
@@ -29,6 +24,11 @@ public class Enemy : MonoBehaviour
         }
 
         _rearmDelay -= Time.deltaTime;
+    }
+
+    public void SetTorpedoLauncer(TorpedoLauncher launcher)
+    {
+        _launcher = launcher;
     }
 
     private void OnTriggerEnter2D(Collider2D collision)

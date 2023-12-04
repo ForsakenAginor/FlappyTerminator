@@ -1,12 +1,11 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class StartScreen : Screen
 {
-    public delegate void ButtonClickedDelegate();
-
-    public event ButtonClickedDelegate StartButtonClicked;
+    public event Action StartButtonClicked;
 
     protected override void OnButtonClick()
     {

@@ -5,6 +5,7 @@ using UnityEngine;
 
 public class EnemySpawner : ObjectPoolGenerator
 {
+    [SerializeField] private TorpedoLauncher _launcher;
     [SerializeField] private float _maxPositionY;
     [SerializeField] private float _minPositionY;
     [SerializeField] private float _spawnFrequency;
@@ -27,6 +28,7 @@ public class EnemySpawner : ObjectPoolGenerator
 
         while (TryGetObjectFromPool(out GameObject spawned))
         {
+            spawned.GetComponent<Enemy>().SetTorpedoLauncer(_launcher);
             yPosition = Random.Range(_minPositionY, _maxPositionY);
             spawned.transform.position = new Vector3(transform.position.x, yPosition, transform.position.z);
             spawned.SetActive(true);
