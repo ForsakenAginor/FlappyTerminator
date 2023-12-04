@@ -1,3 +1,4 @@
+using Microsoft.Win32.SafeHandles;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -8,9 +9,14 @@ public class BubleGenerator : MonoBehaviour
     [SerializeField] private Transform _spawnPoint;
     [SerializeField] private float _spawnSpeed;
 
-    private void Start()
+    private void OnEnable()
     {
         StartCoroutine(Spawn());
+    }
+
+    private void OnDisable()
+    {
+        StopCoroutine(Spawn());
     }
 
     private IEnumerator Spawn()

@@ -8,14 +8,13 @@ public class Game : MonoBehaviour
     [SerializeField] private StartScreen _startScreen;
     [SerializeField] private GameOverScreen _gameOverScreen;
     [SerializeField] private Player _player;
+    [SerializeField] private ObjectPoolGenerator[] _spawners;
 
-    private ObjectPoolGenerator[] _spawners;
     private Health _playerHealth;
 
     private void Awake()
     {
         _playerHealth = _player.GetHealth();
-        _spawners = FindObjectsOfType<ObjectPoolGenerator>();
     }
 
     private void OnEnable()
@@ -46,11 +45,8 @@ public class Game : MonoBehaviour
         _gameOverScreen.Close();
         _player.ResetPlayer();
 
-        if (_spawners != null)
-        {
-            foreach (var spawner in _spawners)
+        foreach (var spawner in _spawners)
                 spawner.ResetPool();
-        }
 
         Time.timeScale = 1;
     }

@@ -6,7 +6,7 @@ public class WaterBubles : MonoBehaviour
 {
     [SerializeField] private float _destroyDelay = 1;
 
-    private void Awake()
+    private void Start()
     {
         Destroy(gameObject, _destroyDelay);
     }

@@ -8,13 +8,9 @@ public abstract class HealthDisplay : MonoBehaviour
 
     protected Health Health => _health;
 
-    private void Awake()
-    {
-        OnHealthChange(_health.MaxHealth);
-    }
-
     private void Start()
     {
+        OnHealthChange(_health.MaxHealth);
         _health.HealthChange += OnHealthChange;
     }
 
